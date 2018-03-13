@@ -18,6 +18,8 @@
 
     @media only screen and (max-width:$bp-small){
         order: 1;
+        flex: 0 0 100%;
+        background-color: $color-grey-light-2;
     }
 
     &__input{
@@ -119,10 +121,7 @@
 
     }
 
-    &__user{
-        
 
-    }
 
     &__user-photo{
         height: 3.75rem;
@@ -130,9 +129,6 @@
         margin-right: 2rem;
     }
 
-    &__user-name{
-
-    }
 }
 
 
@@ -216,6 +212,7 @@
             padding: 1rem;
         }
     }
+
 
     &__icon{
         width: 1.75rem;
@@ -423,18 +420,22 @@
 
         &::before{
             content: "";
-            // background-image: url(../img/chevron-thin-right.svg);
-            // background-size: cover;
+            background-image: url(../img/chevron-thin-right.svg);
+            background-size: cover;
             display: inline-block;
             height: 1rem;
             width: 1rem;
             margin-right: .7rem;
 
-            background-color: $color-primary;
-            -webkit-mask-image: url(../img/chevron-thin-right.svg);
-            -webkit-mask-size: cover;
-            mask-image: url(../img/chevron-thin-right.svg);
-            mask-size: cover;
+            @supports (-webkit-mask-image: url()) or (mask-image: url()){
+                background-color: $color-primary;
+                -webkit-mask-image: url(../img/chevron-thin-right.svg);
+                -webkit-mask-size: cover;
+                mask-image: url(../img/chevron-thin-right.svg);
+                mask-size: cover;
+                background-image: none;
+            }
+            
         }
     }
 }

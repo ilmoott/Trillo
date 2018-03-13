@@ -4,6 +4,7 @@
     background-color: $color-grey-light-2;
     box-shadow: $shadow-dark;
     min-height: 50rem;
+    position: relative;
 
     @media only screen and (max-width:$bp-largest){
         margin: 0;
@@ -25,6 +26,8 @@
 
     @media only screen and (max-width:$bp-small){
         flex-wrap: wrap;
+        height: 12rem;
+        align-content: space-around;
     }
     
 }
@@ -49,6 +52,7 @@
 .hotel-view{
     background-color: white;
     flex: 1;
+    position: relative;
 }
 
 .details{
