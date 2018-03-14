@@ -9,6 +9,41 @@
 
 /////////////////////////
 //SEARCH BOX
+.dropdown{
+    position: relative;
+    display: flex;
+    flex-basis: 100%;
+
+    &-content{
+        display: none;
+        position: absolute;
+        background-color: $color-grey-light-2;
+        color: inherit;
+        z-index: 100;
+    }
+
+    &-content a{
+        text-decoration: none;
+        color: inherit;
+        display: flex;
+
+        &:hover{
+            background-color: $color-grey-light-4;
+        }
+    }
+}
+
+.search__input:focus ~ .dropdown-content{
+    display: flex;
+    flex-direction: column;
+    top: 100%;
+    left: 2rem;
+    padding: .5rem 1rem;
+
+    
+}
+
+
 .search{
 
     flex: 0 0 40%;
@@ -39,6 +74,9 @@
             width: 100%;
             background-color: $color-grey-light-3;
         }
+
+        //////////////////////
+        //here goes the dropdown list
 
         &::-webkit-inputplaceholder{
             font-weight: 100;
@@ -79,8 +117,9 @@
 .user-nav{
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-around;
     align-self: stretch;
+    position: relative;
 
     & > *{
         padding: 0 2rem;
@@ -89,13 +128,14 @@
         display: flex;
         align-items: center;
 
-        &:hover{
+        &:not(:last-child):hover{
             background-color: $color-grey-light-2;
         }
     }
 
     &__icon-box{
         position: relative;
+        display: flex;
     }
 
     &__icon{
@@ -112,17 +152,126 @@
         border-radius: 50%;
         color: white;
         position: absolute;
-        top: 1.5rem;
-        right: 1.1rem;
+        top: -1rem;
+        right: -1rem;
         
         display: flex;
         justify-content: center;
         align-items: center;
-
     }
 
+    &__dropdown{
+        position: relative;
+        display: flex;
+        align-content: center;
+        color: $color-grey-light-3;
+        z-index: 200;
+    }
 
+    &__user{
+        display: flex;
+        align-items: center;
+    }
 
+    &__dropdown-content{
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: $color-primary;
+        z-index: 10;
+        text-align: center;
+        
+
+        &--message{
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: -90%;
+            background-color: $color-primary;
+            z-index: 10;
+            text-align: center;
+            width: 400%;
+        }
+    }
+
+    &__message{
+        display: flex;
+        justify-content: space-between;
+        color: $color-grey-light-4;
+        border-top: 1px solid $color-grey-light-4;
+        padding: 1rem 1rem;
+        font-size: 1rem;
+        align-items: center;
+
+        &:hover{
+            background-color: $color-grey-dark-3;
+        }
+    }
+
+    &__message-data{
+        display: flex;
+        flex-wrap: wrap;   
+    }
+
+    &__message-text{
+        order: 1;
+        flex-basis: 100;
+        text-align: left;
+    }
+
+    &__message-name{
+        margin-right: auto;
+        font-weight: 600;
+        text-decoration: underline;
+    }
+
+    &__msg-link{
+        display: flex;
+        justify-content: space-between;
+        color: white;
+        flex-basis: 100%;
+        padding: 0 .3rem;
+        font-size: 1.3rem;
+
+        &:hover{
+            background-color: $color-grey-dark-3;
+        }
+
+        &--tittle-right{
+            justify-content: flex-end;
+            color: $color-grey-light-3;
+
+            &:hover{
+                color: $color-primary;
+            }
+        }
+
+        &--tittle-left{
+            color: $color-grey-light-3;
+
+            &:hover{
+                color: $color-primary;
+            }
+        }
+    }
+
+    &__dropdown-item{
+        color: white;
+        text-decoration: none;
+        flex-basis: 100%;
+
+        &:hover{
+            background-color: $color-grey-dark-3;
+        }
+    }
+
+    &__dropdown:hover &__dropdown-content{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    
     &__user-photo{
         height: 3.75rem;
         border-radius: 50%;
@@ -250,10 +399,29 @@
 
 .gallery{
     display: flex;
+    
 
     &__photo{
         width: 100%;
         display: block;
+    }
+
+    &__item{
+        position: relative;
+    }
+
+    &__item-caption{
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        padding: .5rem .5rem;
+        background-color: rgba($color-grey-light-3, .5);
+        color: white;
+
+        &--black{
+            color: $color-grey-dark-2;
+            background-color: rgba($color-grey-light-4, .7);
+        }
     }
 }
 
@@ -437,6 +605,10 @@
             }
             
         }
+    }
+
+    @media only screen and (max-width:28.75em){
+        padding: 1rem;
     }
 }
 

@@ -16,31 +16,97 @@
                 <img src="img/logo.png" alt="trillo logo" class="logo">
 
                 <form action="#" class="search">
-                    <input type="text" class="search__input" placeholder="Search hotels">
-                    <button class="search__button">
-                        <svg class="search__icon">
-                            <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
-                        </svg>
-                    </button>
+                    <div class="dropdown">
+                        <input type="text" class="search__input" placeholder="Search hotels">
+                        <button class="search__button">
+                            <svg class="search__icon">
+                                <use xlink:href="img/sprite.svg#icon-magnifying-glass"></use>
+                            </svg>
+                        </button>
+                        <div class="dropdown-content">
+                            <a class="dropdown__item">Hotel Las Palmas</a>
+                            <a class="dropdown__item">Hotel Meriton</a>
+                            <a class="dropdown__item">Hotel Mariott</a>
+                        </div>
+                    </div>
+                    
                 </form>
 
                 <nav class="user-nav">
-                    <div class="user-nav__icon-box">
-                        <svg class="user-nav__icon">
-                            <use xlink:href="img/sprite.svg#icon-bookmark"></use>
-                        </svg>
-                        <span class="user-nav__notification">7</span>
+                    <div class="user-nav__dropdown">
+                        <div class="user-nav__icon-box">
+                            <svg class="user-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-bookmark"></use>
+                            </svg>
+                            <span class="user-nav__notification">7</span>
+                        </div>
+                        <div class="user-nav__dropdown-content">
+                            <a href="#" class="user-nav__dropdown-item">Saved</a>
+                            <a href="#" class="user-nav__dropdown-item">Erase</a>
+                        </div>
                     </div>
-                    <div class="user-nav__icon-box">
-                        <svg class="user-nav__icon">
-                            <use xlink:href="img/sprite.svg#icon-chat"></use>
-                        </svg>
-                        <span class="user-nav__notification">7</span>
+                    
+                    <div class="user-nav__dropdown">
+                        <div class="user-nav__icon-box">
+                            <svg class="user-nav__icon">
+                                <use xlink:href="img/sprite.svg#icon-chat"></use>
+                            </svg>
+                            <span class="user-nav__notification">7</span>
+                        </div>
+                        <div class="user-nav__dropdown-content user-nav__dropdown-content--message">
+                            <div class="user-nav__msg-link">
+                                <a class="user-nav__msg-link user-nav__msg-link--tittle-left">Recent</a>
+                                <a class="user-nav__msg-link user-nav__msg-link--tittle-right">New Message</a>
+                            </div>
+                            <div class="user-nav__message">
+                                <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
+                                <div class="user-nav__message-data">
+                                    <span class="user-nav__message-name">Jonas</span>
+                                    <p class="user-nav__message-text">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <span class="user-nav__message-date">14 March</span>
+                                </div>
+                                
+                            </div>
+                            <div class="user-nav__message">
+                                <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
+                                <div class="user-nav__message-data">
+                                    <span class="user-nav__message-name">Jonas</span>
+                                    <p class="user-nav__message-text">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <span class="user-nav__message-date">14 March</span>
+                                </div>
+                            </div>
+                            <div class="user-nav__message">
+                                <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
+                                <div class="user-nav__message-data">
+                                    <span class="user-nav__message-name">Jonas</span>
+                                    <p class="user-nav__message-text">
+                                        Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    </p>
+                                    <span class="user-nav__message-date">14 March</span>
+                                </div>
+                            </div>
+                            
+                        </div>
                     </div>
-                    <div class="user-nac__user">
-                        <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
-                        <span class="user-nav__user-name">Jonas</span>
+                    
+                    <div class="user-nav__dropdown">
+                        <div class="user-nav__user">
+                            <img src="img/user.jpg" alt="User photo" class="user-nav__user-photo">
+                            <span href="#"class="user-nav__user-name">Jonas</span>
+                        </div>
+                        
+                        <div class="user-nav__dropdown-content">
+                            <a href="#" class="user-nav__dropdown-item">Menu</a>
+                            <a href="#" class="user-nav__dropdown-item">Profile</a>
+                            <a href="#" class="user-nav__dropdown-item">Settings</a>
+                            <a href="#" class="user-nav__dropdown-item">Logout</a>
+                        </div>
                     </div>
+                    
 
                 </nav>
             </header>
@@ -89,12 +155,15 @@
                     <div class="gallery">
                         <figure class="gallery__item">
                             <img src="img/hotel-1.jpg" alt="Photo of hotel 1" class="gallery__photo">
+                            <figcaption class="gallery__item-caption">Amazing Landscapes</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img src="img/hotel-2.jpg" alt="Photo of hotel 2" class="gallery__photo">
+                            <figcaption class="gallery__item-caption">Amazing Landscapes</figcaption>
                         </figure>
                         <figure class="gallery__item">
                             <img src="img/hotel-3.jpg" alt="Photo of hotel 3" class="gallery__photo">
+                            <figcaption class="gallery__item-caption gallery__item-caption--black">Amazing Landscapes</figcaption>
                         </figure>
                     </div>
                     
@@ -227,9 +296,6 @@
 
             </div>
 
-            <div class="intro">
-                Welcome to Trillo
-            </div>
         </div>
     </body>
 </html>

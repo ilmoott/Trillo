@@ -45,6 +45,30 @@ body {
   height: 3.25rem;
   margin-left: 3rem; }
 
+.dropdown {
+  position: relative;
+  display: flex;
+  flex-basis: 100%; }
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f4f2f2;
+    color: inherit;
+    z-index: 100; }
+  .dropdown-content a {
+    text-decoration: none;
+    color: inherit;
+    display: flex; }
+    .dropdown-content a:hover {
+      background-color: #ccc; }
+
+.search__input:focus ~ .dropdown-content {
+  display: flex;
+  flex-direction: column;
+  top: 100%;
+  left: 2rem;
+  padding: .5rem 1rem; }
+
 .search {
   flex: 0 0 40%;
   display: flex;
@@ -90,18 +114,20 @@ body {
 .user-nav {
   display: flex;
   align-items: center;
-  justify-content: center;
-  align-self: stretch; }
+  justify-content: space-around;
+  align-self: stretch;
+  position: relative; }
   .user-nav > * {
     padding: 0 2rem;
     cursor: pointer;
     height: 100%;
     display: flex;
     align-items: center; }
-    .user-nav > *:hover {
+    .user-nav > *:not(:last-child):hover {
       background-color: #f4f2f2; }
   .user-nav__icon-box {
-    position: relative; }
+    position: relative;
+    display: flex; }
   .user-nav__icon {
     height: 2.25rem;
     width: 2.25rem;
@@ -114,11 +140,85 @@ body {
     border-radius: 50%;
     color: white;
     position: absolute;
-    top: 1.5rem;
-    right: 1.1rem;
+    top: -1rem;
+    right: -1rem;
     display: flex;
     justify-content: center;
     align-items: center; }
+  .user-nav__dropdown {
+    position: relative;
+    display: flex;
+    align-content: center;
+    color: #f0eeee;
+    z-index: 200; }
+  .user-nav__user {
+    display: flex;
+    align-items: center; }
+  .user-nav__dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #eb2f64;
+    z-index: 10;
+    text-align: center; }
+    .user-nav__dropdown-content--message {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: -90%;
+      background-color: #eb2f64;
+      z-index: 10;
+      text-align: center;
+      width: 400%; }
+  .user-nav__message {
+    display: flex;
+    justify-content: space-between;
+    color: #ccc;
+    border-top: 1px solid #ccc;
+    padding: 1rem 1rem;
+    font-size: 1rem;
+    align-items: center; }
+    .user-nav__message:hover {
+      background-color: #999; }
+  .user-nav__message-data {
+    display: flex;
+    flex-wrap: wrap; }
+  .user-nav__message-text {
+    order: 1;
+    flex-basis: 100;
+    text-align: left; }
+  .user-nav__message-name {
+    margin-right: auto;
+    font-weight: 600;
+    text-decoration: underline; }
+  .user-nav__msg-link {
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    flex-basis: 100%;
+    padding: 0 .3rem;
+    font-size: 1.3rem; }
+    .user-nav__msg-link:hover {
+      background-color: #999; }
+    .user-nav__msg-link--tittle-right {
+      justify-content: flex-end;
+      color: #f0eeee; }
+      .user-nav__msg-link--tittle-right:hover {
+        color: #eb2f64; }
+    .user-nav__msg-link--tittle-left {
+      color: #f0eeee; }
+      .user-nav__msg-link--tittle-left:hover {
+        color: #eb2f64; }
+  .user-nav__dropdown-item {
+    color: white;
+    text-decoration: none;
+    flex-basis: 100%; }
+    .user-nav__dropdown-item:hover {
+      background-color: #999; }
+  .user-nav__dropdown:hover .user-nav__dropdown-content {
+    display: flex;
+    flex-wrap: wrap; }
   .user-nav__user-photo {
     height: 3.75rem;
     border-radius: 50%;
@@ -203,6 +303,18 @@ body {
   .gallery__photo {
     width: 100%;
     display: block; }
+  .gallery__item {
+    position: relative; }
+  .gallery__item-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    padding: .5rem .5rem;
+    background-color: rgba(240, 238, 238, 0.5);
+    color: white; }
+    .gallery__item-caption--black {
+      color: #777;
+      background-color: rgba(204, 204, 204, 0.7); }
 
 .overview {
   display: flex;
@@ -321,6 +433,9 @@ body {
           mask-image: url(../img/chevron-thin-right.svg);
           mask-size: cover;
           background-image: none; } }
+  @media only screen and (max-width: 28.75em) {
+    .list {
+      padding: 1rem; } }
 
 .recommend {
   font-size: 1.3rem;
@@ -441,7 +556,8 @@ body {
   margin: 8rem auto;
   background-color: #f4f2f2;
   box-shadow: 0 2rem 6rem rgba(0, 0, 0, 0.3);
-  min-height: 50rem; }
+  min-height: 50rem;
+  position: relative; }
   @media only screen and (max-width: 75em) {
     .container {
       margin: 0;
