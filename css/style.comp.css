@@ -183,7 +183,8 @@ body {
     font-size: 1rem;
     align-items: center; }
     .user-nav__message:hover {
-      background-color: #999; }
+      background-color: #999;
+      color: white; }
   .user-nav__message-data {
     display: flex;
     flex-wrap: wrap; }
@@ -302,7 +303,8 @@ body {
       display: none; } }
 
 .gallery {
-  display: flex; }
+  display: flex;
+  overflow: hidden; }
   .gallery__photo {
     width: 100%;
     display: block; }
@@ -314,10 +316,14 @@ body {
     right: 0;
     padding: .5rem .5rem;
     background-color: rgba(240, 238, 238, 0.5);
-    color: white; }
+    color: white;
+    transition: all .3s;
+    overflow: hidden; }
     .gallery__item-caption--black {
       color: #777;
       background-color: rgba(204, 204, 204, 0.7); }
+    .gallery__item-caption:hover {
+      transform: scaleX(1.1); }
 
 .overview {
   display: flex;
