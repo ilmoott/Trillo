@@ -193,6 +193,10 @@
             text-align: center;
             width: 400%;
         }
+
+        @media screen and (max-width:31.25em){
+            top: 130%;
+        }
     }
 
     &__message{
